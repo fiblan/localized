@@ -9,7 +9,8 @@ This plugin contains various localized validation classes for specific countries
 
 ### Using the Localized plugin
 
-First download the repository and place it in `app/Plugin/Localized` or on one of your plugin paths. You can then import and use the validators in your App classes.
+First download the repository and place it in `app/Plugin/Localized` or on one of your plugin paths.
+You can then import and use the validators in your App classes.
 
 ### Model validation
 
@@ -55,7 +56,9 @@ You also need to adjust your App::uses() statements in your code accordingly:
 
 ## Contributing to Localized
 
-If you find that your country is not part of the Localized plugin, please fork the project on github.  Once you have forked the project you can commit your validator class (and any test cases).  Once you have pushed your changes back to github send a pull request, and your changes will be reviewed and merged in or feedback will be given.
+If you find that your country is not part of the Localized plugin, please fork the project on github.
+Once you have forked the project you can commit your validator class (and any test cases).
+Once you have pushed your changes back to github send a pull request, and your changes will be reviewed and merged in or feedback will be given.
 
 ## Issues with Localized
 
