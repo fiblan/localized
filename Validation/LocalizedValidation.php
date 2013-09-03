@@ -74,7 +74,7 @@ abstract class LocalizedValidation {
 		if (isset(self::$_pattern[$name])) {
 			return self::$_pattern[$name];
 		}
-		throw new NotImplementedException(__d('Localized', 'There is no regex pattern for %s defined', $name));
+		throw new NotImplementedException(__d('localized', 'There is no regex pattern for %s defined', $name));
 	}
 
 }
