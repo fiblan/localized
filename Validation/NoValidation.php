@@ -16,14 +16,14 @@
  * @since         Localized Plugin v 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-App::uses('ValidationInterface', 'Localized.Validation');
+App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * NoValidation
  *
  * @package       Localized.Validation
  */
-class NoValidation implements ValidationInterface {
+class NoValidation extends LocalizedValidation {
 
 /**
  * Checks date of birth formal format for Norway (dd.mm.yyyy),
@@ -70,7 +70,7 @@ class NoValidation implements ValidationInterface {
  * @param string $check The value to check.
  * @return boolean Success.
  */
-	public static function identification($check) {
+	public static function personId($check) {
 		$pattern = '/^(\d{11})|(\d{6} \d{5})$/';
 		return (bool)preg_match($pattern, $check);
 	}
@@ -80,10 +80,10 @@ class NoValidation implements ValidationInterface {
  *
  * @param string $check The value to check.
  * @return boolean Success.
- * @deprecated Use identification() instead.
+ * @deprecated Use personId() instead.
  */
 	public static function ssn($check) {
-		return self::identification($check);
+		return self::personId($check);
 	}
 
 }

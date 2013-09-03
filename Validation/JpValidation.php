@@ -16,14 +16,14 @@
  * @since         Localized Plugin v 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-App::uses('ValidationInterface', 'Localized.Validation');
+App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * JpValidation
  *
  * @package       Localized.Validation
  */
-class JpValidation implements ValidationInterface {
+class JpValidation extends LocalizedValidation {
 
 /**
  * Checks a phone number for Japan.
@@ -99,13 +99,13 @@ class JpValidation implements ValidationInterface {
 	}
 
 /**
- * Checks a country specific identification number.
+ * Checks a country specific person id.
  *
  * @param string $check The value to check.
  * @return boolean Success.
  * @throws NotImplementedException
  */
-	public static function identification($check) {
+	public static function personId($check) {
 		throw new NotImplementedException('Not implemented yet.');
 	}
 

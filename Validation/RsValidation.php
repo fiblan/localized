@@ -16,14 +16,14 @@
  * @since         Localized Plugin v 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-App::uses('ValidationInterface', 'Localized.Validation');
+App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * RsValidation
  *
  * @package       Localized.Validation
  */
-class RsValidation implements ValidationInterface {
+class RsValidation extends LocalizedValidation {
 
 /**
  * Checks a postal code (Poštanski broj) for Serbia.
@@ -43,7 +43,7 @@ class RsValidation implements ValidationInterface {
  * @return boolean Success.
  * @link http://en.wikipedia.org/wiki/Unique_Master_Citizen_Number
  */
-	public static function identification($check) {
+	public static function personId($check) {
 		if (!preg_match('/^[0-9]{13}$/', $check)) {
 			return false;
 		}
@@ -92,10 +92,10 @@ class RsValidation implements ValidationInterface {
  * @param string $check The value to check.
  * @return boolean Success.
  * @link http://en.wikipedia.org/wiki/Unique_Master_Citizen_Number
- * @deprecated Use identification() instead.
+ * @deprecated Use personId() instead.
  */
 	public static function jmbg($check) {
-		return self::identification($check);
+		return self::personId($check);
 	}
 
 /**

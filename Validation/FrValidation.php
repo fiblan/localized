@@ -16,14 +16,14 @@
  * @since         Localized Plugin v 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-App::uses('ValidationInterface', 'Localized.Validation');
+App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * FrValidation
  *
  * @package       Localized.Validation
  */
-class FrValidation implements ValidationInterface {
+class FrValidation extends LocalizedValidation {
 
 /**
  * Checks a phone number for France.
@@ -53,7 +53,7 @@ class FrValidation implements ValidationInterface {
  * @param string $check The value to check.
  * @return boolean Success.
  */
-	public static function identification($check) {
+	public static function personId($check) {
 		$pattern = '/^[12]\d{2}(0\d|1[012])(\d{2}|2[AB])\d{8}$/';
 		if (!preg_match($pattern, $check)) {
 			return false;
@@ -80,10 +80,10 @@ class FrValidation implements ValidationInterface {
  *
  * @param string $check The value to check.
  * @return boolean Success.
- * @deprecated Use identification() instead.
+ * @deprecated Use personId() instead.
  */
 	public static function ssn($check) {
-		return self::identification($check);
+		return self::personId($check);
 	}
 
 }

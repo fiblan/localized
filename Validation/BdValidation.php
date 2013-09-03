@@ -16,14 +16,14 @@
  * @since         Localized Plugin v 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-App::uses('ValidationInterface', 'Localized.Validation');
+App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * BdValidation
  *
  * @package       Localized.Validation
  */
-class BdValidation implements ValidationInterface {
+class BdValidation extends LocalizedValidation {
 
 /**
  * Checks a postal code for Bangladesh.
@@ -40,7 +40,7 @@ class BdValidation implements ValidationInterface {
 		throw new NotImplementedException('Not implemented yet.');
 	}
 
-	public static function identification($string) {
+	public static function personId($string) {
 		throw new NotImplementedException('Not implemented yet.');
 	}
 

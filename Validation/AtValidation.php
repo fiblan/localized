@@ -16,14 +16,18 @@
  * @since         Localized Plugin v 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-App::uses('ValidationInterface', 'Localized.Validation');
+App::uses('LocalizedValidation', 'Localized.Validation');
 
 /**
  * AtValidation
  *
  * @package       Localized.Validation
  */
-class AtValidation implements ValidationInterface {
+class AtValidation extends LocalizedValidation {
+
+	protected static $_pattern = array(
+		'postal' => '/^[0-9]{4}$/'
+	);
 
 /**
  * Checks a postal code.
@@ -32,30 +36,8 @@ class AtValidation implements ValidationInterface {
  * @return boolean Success.
  */
 	public static function postal($check) {
-		$pattern = '/^[0-9]{4}$/';
+		$pattern = static::_getPattern(__FUNCTION__);
 		return (bool)preg_match($pattern, $check);
-	}
-
-/**
- * Checks a phone number.
- *
- * @param string $check The value to check.
- * @return boolean Success.
- * @throws NotImplementedException
- */
-	public static function phone($check) {
-		throw new NotImplementedException('Not implemented yet.');
-	}
-
-/**
- * Checks a country specific identification number.
- *
- * @param string $check The value to check.
- * @return boolean Success.
- * @throws NotImplementedException
- */
-	public static function identification($check) {
-		throw new NotImplementedException('Not implemented yet.');
 	}
 
 }
